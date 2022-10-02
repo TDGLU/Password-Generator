@@ -7,7 +7,7 @@ function generatePassword() {
   // 1. Prompt the user for the password criteria
 
   //    a. Password length 8 < 128
-  const passwordLength = parseInt(prompt('How long will your password be? Between 8-128 characters long'))
+  const passwordLength = (prompt('How long will your password be? Between 8-128 characters long'))
 
   //    b. Lowercase, uppercase, numbers, special characters
   const uppercaseListed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
