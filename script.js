@@ -2,6 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
+  // Console testing
   console.log('Generate Password button clicked.')
 
   // 1. Prompt the user for the password criteria
@@ -9,17 +10,28 @@ function generatePassword() {
   //    a. Password length 8 < 128
   const passwordLength = (prompt('How long will your password be? Choose between 8-128 characters long.'))
 
-  // Lowercase Alphabet
-function lowercaseList() {
+  // Lowercase Alphabet from a-z
+function lowerList() {
  return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
 }
 
-// Uppercase Alphabet
-function lowercaseList() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+// Uppercase Alphabet from A-Z
+function UpperList() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
 }
 
-console.log(lowercaseList());
+// Numbers from 1 - 10
+function numbList() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
+}
+
+// Special characters (14)
+function SpecialList() {
+  return String.fromCharCode(Math.floor(Math.random() * 14) + 33)
+}
+
+//Console testing
+console.log(lowerList(), UpperList(), numbList(), SpecialList());
 
   // 2. Validate the input~
 
