@@ -1,10 +1,9 @@
-// Assignment code here
+// HTML ID Selectors
 var generateBtn = document.querySelector("#generate");
-
+var passwordText = document.querySelector("#password");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
@@ -15,53 +14,33 @@ function generatePassword() {
   // Console testing
   console.log('Generate Password button clicked.')
 
-  // Constants
-  const randomFunc = {
-    lower: lowerList,
-    upper: upperList,
-    number: numbList,
-    special: specialList
-  };
-
   // All the valid characters
   // Lowercase Alphabet from a-z
-  function lowerList() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-  }
-
-  // Uppercase Alphabet from A-Z
-  function upperList() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-  }
-
-  // Numbers from 1 - 10
-  function numbList() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
-  }
-
-  // Special characters (14)
-  function specialList() {
-    return String.fromCharCode(Math.floor(Math.random() * 14) + 33)
-  }
 
   // Character Length
+  const upperList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const lowerList = upperList.toLowerCase();
+  const numbList = '0123456789';
+  const specialList = '!@#$%^&*()-=_+';
   let characters = ''
   let newPassword = ''
 
   //Console testing
-  console.log('Randomly generated characters:', lowerList(), upperList(), numbList(), specialList(),'.');
+  console.log('Randomly generated characters:', lowerList, upperList, numbList, specialList);
   
   // Prompt for the user to input the number of characters the password should have
   const passwordLength = parseInt(prompt('How long will your password be? Choose between 8-128 characters long.'))
   
- // Invalid number message
+ // Valid number message
   if (passwordLength >= 8 && passwordLength <= 128) {
     //Console testing
-    console.log('Valid password')
-  }
+    console.log('Valid input')
+  } 
+    // Invalid answer response
     else {
       alert('Password must be 8 - 128 characters long.')
-      console.log('Invalid password')
+      //Console testing
+      console.log('Invalid input')
       return 'Invalid input';
     }
 
@@ -73,25 +52,29 @@ function generatePassword() {
 
     if (passLower) {
       characters += lowerList
-   }
-
-   if (passUpper) {
-     characters += upperList
-   }
-
-   if (passNumber) {
-      characters += numbList
     }
 
+    if (passUpper) {
+     characters += upperList
+    }
+
+    if (passNumber) {
+      characters += numbList
+    }
+    
     if (passSpecial) {
       characters += specialList
     }
-   if (!passLower && !passUpper && !passNumber && !passSpecial) {
-      alert('At least pick one lol')
-   }
 
-   for (i = 0; i < passwordLength; i++) {
+    if (!passLower && !passUpper && !passNumber && !passSpecial) {
+      alert('You must choose atleast one.')
+      console.log('Invalid input')
+      return 'Invalid input';
+    }
+    // For loop that creates the password determined by character length
+    for (i = 0; i < passwordLength; i++) {
      let randomNumber = Math.floor(Math.random() * characters.length)
      newPassword += characters.charAt(randomNumber)
-  }
+    }
+    return newPassword
 }
