@@ -1,10 +1,14 @@
 // Assignment code here
 var generateBtn = document.querySelector("#generate");
 
+// When clicked, this button should display generated password
+generateBtn.addEventListener("click", writePassword)
+
 function generatePassword() {
   // Console testing
   console.log('Generate Password button clicked.')
 
+  // Constants
   const randomFunc = {
     lower: lowerList,
     upper: UpperList,
@@ -12,10 +16,13 @@ function generatePassword() {
     special: SpecialList
   };
   
-  // 1. Prompt the user for the password criteria
-  const passwordLength = (prompt('How long will your password be? Choose between 8-128 characters long.'))
- 
-  //    a. Password length 8 < 128
+  
+  generateBtn.addEventListener('click', () => {
+    const length = passwordLength.value;
+
+    // Console testing
+    console.log(typeof length)
+  })
 
 // All the valid characters
   // Lowercase Alphabet from a-z
@@ -41,14 +48,18 @@ function SpecialList() {
 //Console testing
 console.log(lowerList(), UpperList(), numbList(), SpecialList());
 
-  // 2. Validate the input
+  // Prompt for the user to input the number of characters the password should have
+  const passwordLength = (prompt('How long will your password be? Choose between 8-128 characters long.'))
+  if (isNaN(passwordLength)) {
+    alert('You must put in a number')
+  }
 
-  // 3. Generate password based on criteria
+
+  // Prompt the user for the password criteria
   let passLower = confirm('Should your password contain any lowercase letters? a-z')
   let passUpper = confirm('Should your password contain any Uppercase letters? A-Z')
   let passNumber = confirm('Should your password contain any numbers? 0-9')
   let passSpecial = confirm('Should your password contain any special characters?')
-  // 4. Display password to the page
 }
 
 // Write password to the #password input
@@ -59,6 +70,3 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
