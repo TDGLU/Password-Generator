@@ -9,19 +9,22 @@ function generatePassword() {
   //    a. Password length 8 < 128
   const passwordLength = (prompt('How long will your password be? Choose between 8-128 characters long.'))
 
-  //    b. Lowercase, uppercase, numbers, special characters
-  const uppercaseListed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  const lowercaseListed = 'abcdefghijklmnopqrstuvwxyz'
-  const numberListed = '0123456789'
-  const specialListed = '[]/^_`:;<?@=>!#$%&,()+*-./'
+  // Lowercase Alphabet
+function lowercaseList() {
+ return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+}
 
-  var listed = uppercaseListed; lowercaseListed; numberListed; specialListed
-  // 2. Validate the input
+// Uppercase Alphabet
+function lowercaseList() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+}
+
+console.log(lowercaseList());
+
+  // 2. Validate the input~
 
   // 3. Generate password based on criteria
-  function listed(numberListed,specialListed,lowercaseListed,uppercaseListed) {
-    let charactersList = uppercaseListed
-  }
+
   // 4. Display password to the page
 
 }
