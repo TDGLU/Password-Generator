@@ -18,15 +18,15 @@ function generatePassword() {
   // Lowercase Alphabet from a-z
 
   // Character Length
-  const upperList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const lowerList = upperList.toLowerCase();
-  const numbList = '0123456789';
-  const specialList = '!@#$%^&*()-=_+';
+  const upperList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const lowerList = 'abcdefghijklmnopqrstuvwxyz'
+  const numbList = '0123456789'
+  const specialList = '!@#$%^&*()-=_+'
   let characters = ''
   let newPassword = ''
 
   //Console testing
-  console.log('Randomly generated characters:', lowerList, upperList, numbList, specialList);
+  console.log('List of all characters used', lowerList, upperList, numbList, specialList);
   
   // Prompt for the user to input the number of characters the password should have
   const passwordLength = parseInt(prompt('How long will your password be? Choose between 8-128 characters long.'))
